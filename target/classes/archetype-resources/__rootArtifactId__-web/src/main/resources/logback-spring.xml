@@ -5,9 +5,9 @@
 <configuration scan="true" scanPeriod="30 seconds" debug="true">
     <contextName>cacacai</contextName>
     <springProperty scope="context" name="springAppName" source="spring.application.name"/>
-    <property name="log.path" value="log" />
+    <property name="log.path" value="/data/logs" />
     <property name="log.maxHistory" value="90" />
-    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss} [%-5level] [app_name=${symbol_dollar}{springAppName:-},ip=%X{IP},request_id=%X{RequestId},tx_id=%X{TxId},span_id=%X{SpanId}] %thread %logger: %msg%n"/>
+    <property name="log.pattern" value="@%d{yyyy-MM-dd HH:mm:ss} [%-5level] [app_name=${symbol_dollar}{springAppName:-},ip=%X{IP},request_id=%X{RequestId},tx_id=%X{TxId},span_id=%X{SpanId}] %thread %logger: %msg%n"/>
 
     <springProfile name="dev">
         <!--输出到控制台-->
@@ -31,7 +31,7 @@
         <!--输出到文件-->
         <appender name="file_info" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>${symbol_dollar}{log.path}/info/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <fileNamePattern>${symbol_dollar}{log.path}/info/info.{yyyy-MM-dd}-%d.log</fileNamePattern>
                 <!--日志文件保留天数-->
                 <MaxHistory>${symbol_dollar}{log.maxHistory}</MaxHistory>
             </rollingPolicy>
