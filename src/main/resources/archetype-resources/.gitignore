@@ -7,8 +7,8 @@
 # Editor-based HTTP Client requests
 /httpRequests/
 
-${rootArtifactId}-common/target
-${rootArtifactId}-core/target
-${rootArtifactId}-web/target
+@project.artifactId@-common/target
+@project.artifactId@-core/target
+@project.artifactId@-web/target
 .idea/
 log/
