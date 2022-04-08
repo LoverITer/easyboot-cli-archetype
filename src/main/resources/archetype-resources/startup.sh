@@ -6,7 +6,7 @@
 set -e
 
 #项目名称
-PROJECT_NAME="easyboot-cli"
+PROJECT_NAME=${artifactId}
 #版本
 VERSION="1.0.0"
 PROJECT_VERSION='1.0.0'

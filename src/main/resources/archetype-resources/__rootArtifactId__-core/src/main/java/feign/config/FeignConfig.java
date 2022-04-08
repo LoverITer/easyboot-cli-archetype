@@ -1,4 +1,7 @@
-package top.easyblog.titan.feign.config;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.feign.config;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
@@ -18,13 +21,13 @@ import org.springframework.cloud.openfeign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
-import top.easyblog.titan.constant.Constants;
-import top.easyblog.titan.exception.BusinessException;
-import top.easyblog.titan.feign.config.http.encoder.CamelToUnderscoreEncoder;
-import top.easyblog.titan.feign.internal.FeignLogger;
-import top.easyblog.titan.feign.internal.OkHttpClientFactory;
-import top.easyblog.titan.feign.sign.CommonSignInterceptor;
-import top.easyblog.titan.response.ResultCode;
+import ${package}.constant.Constants;
+import ${package}.exception.BusinessException;
+import ${package}.feign.config.http.encoder.CamelToUnderscoreEncoder;
+import ${package}.feign.internal.FeignLogger;
+import ${package}.feign.internal.OkHttpClientFactory;
+import ${package}.feign.sign.CommonSignInterceptor;
+import ${package}.response.ResultCode;
 import top.easyboot.sign.SignHandler;
 
 import java.util.HashSet;
@@ -44,25 +47,25 @@ public class FeignConfig {
     @Autowired
     protected SignHandler signHandler;
 
-    @Value("${feign.custom.read-timeout:6000}")
+    @Value("${symbol_dollar}{feign.custom.read-timeout:6000}")
     private int readTimeout;
 
-    @Value("${feign.custom.write-timeout:5000}")
+    @Value("${symbol_dollar}{feign.custom.write-timeout:5000}")
     private int writeTimeout;
 
-    @Value("${feign.custom.connect-timeout:3000}")
+    @Value("${symbol_dollar}{feign.custom.connect-timeout:3000}")
     private int connectTimeout;
 
-    @Value("${feign.custom.period:100}")
+    @Value("${symbol_dollar}{feign.custom.period:100}")
     private int period;
 
-    @Value("${feign.custom.retry-max-period:1000}")
+    @Value("${symbol_dollar}{feign.custom.retry-max-period:1000}")
     private int retryMaxPeriod;
 
-    @Value("${feign.custom.retry-max-attempts:3}")
+    @Value("${symbol_dollar}{feign.custom.retry-max-attempts:3}")
     private int retryMaxAttempts;
 
-    @Value("${feign.excludes:''}")
+    @Value("${symbol_dollar}{feign.excludes:''}")
     private String excludesPath;
 
     @Bean

@@ -1,4 +1,7 @@
-package top.easyblog.titan.feign.config;
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package}.feign.config;
 
 import com.google.common.collect.Lists;
 import feign.codec.Decoder;
@@ -11,10 +14,10 @@ import org.springframework.cloud.openfeign.support.SpringEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
-import top.easyblog.titan.exception.BusinessException;
-import top.easyblog.titan.feign.config.http.converter.FormHttpMessageConverter;
-import top.easyblog.titan.response.ResultCode;
-import top.easyblog.titan.util.JsonUtils;
+import ${package}.exception.BusinessException;
+import ${package}.feign.config.http.converter.FormHttpMessageConverter;
+import ${package}.response.ResultCode;
+import ${package}.util.JsonUtils;
 
 /**
  * @author: frank.huang

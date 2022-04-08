@@ -2,7 +2,7 @@ server:
   port: 8001
 spring:
   application:
-    name: @project.artifactId@
+    name: ${artifactId}
 logging:
   config: classpath:logback-spring.xml
 ---
