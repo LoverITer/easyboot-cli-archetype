@@ -1,12 +1,9 @@
-#set( $symbol_pound = '#' )
-#set( $symbol_dollar = '$' )
-#set( $symbol_escape = '\' )
-package ${package}.feign.config;
+package top.easyblog.titan.feign.config;
 
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;
-import ${package}.exception.BusinessException;
-import ${package}.response.ResultCode;
+import top.easyblog.titan.exception.BusinessException;
+import top.easyblog.titan.response.ResultCode;
 
 /**
  * @author: frank.huang

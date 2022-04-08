@@ -49,4 +49,9 @@ public class WebAppConfigurer implements WebMvcConfigurer {
         //将Get  请求的下划线转化成驼峰样式
         argumentResolvers.add(new UnderlineToCamelArgumentResolver());
     }
+
+    @Bean
+    public GsonHttpMessageConverter customConverters() {
+        return new CustomGsonHttpMessageConverter();
+    }
 }

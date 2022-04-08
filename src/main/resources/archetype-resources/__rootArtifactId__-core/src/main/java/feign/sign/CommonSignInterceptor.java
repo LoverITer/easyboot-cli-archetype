@@ -71,10 +71,4 @@ public class CommonSignInterceptor extends AbstractSignInterceptor {
     protected void afterSign(RequestTemplate requestTemplate, String sign) {
         InterceptorUtils.query(requestTemplate, Constants.SIGN, sign);
     }
-
-
-    @Bean
-    public GsonHttpMessageConverter customConverters() {
-        return new CustomGsonHttpMessageConverter();
-    }
 }
