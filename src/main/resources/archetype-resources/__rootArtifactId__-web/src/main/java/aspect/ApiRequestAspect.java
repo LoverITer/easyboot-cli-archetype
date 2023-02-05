@@ -10,6 +10,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import ${package}.exception.BusinessException;
 import ${package}.request.BaseRequest;
 import ${package}.response.ResultCode;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -19,6 +20,7 @@ import java.util.Objects;
  * @date 2022/01/29 14:45
  */
 @Aspect
+@Component
 public class ApiRequestAspect {
 
     @Pointcut("execution(public * ${package}.controller..*.*(..)) && " +

@@ -10,14 +10,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @EnableWebMvc
 @EnableFeignClients
 @EnableTransactionManagement
 @MapperScans({
-        @MapperScan("${package}.dao"),
-        @MapperScan("top.easyboot.dao.auto")
+        @MapperScan("${package}.dao")
 })
+@EnableAspectJAutoProxy
 @SpringBootApplication(scanBasePackages = {"${package}"})
 public class Application {
 

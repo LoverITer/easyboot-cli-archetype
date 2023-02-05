@@ -4,6 +4,7 @@
 package ${package}.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.servlet.error.ErrorViewResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -55,5 +56,12 @@ public class WebAppConfigurer implements WebMvcConfigurer {
     @Bean
     public GsonHttpMessageConverter customConverters() {
         return new CustomGsonHttpMessageConverter();
+    }
+
+    @Bean
+    public ErrorViewResolver errorViewResolver() {
+        return (request, status, model) -> {
+            throw new BusinessException(NestorResultCode.FAIL);
+        };
     }
 }

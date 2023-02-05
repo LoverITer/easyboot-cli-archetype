@@ -34,9 +34,18 @@ public class LogInterceptor implements HandlerInterceptor {
         }
         String queryString = request.getQueryString();
         String queryClause = StringUtils.hasLength(queryString) ? "?" + queryString : "";
-        log.info("{} {}{},parameters={{}}",request.getMethod(),getRequestUri(request),queryClause,params);
+        if (printRequestParameters(request.getMethod())) {
+            log.info("{} {}{},request body={{}}", request.getMethod(), getRequestUri(request), queryClause, params);
+        } else {
+            log.info("{} {}{}", request.getMethod(), getRequestUri(request), queryClause);
+        }
         return true;
     }
+
+    private boolean printRequestParameters(String method) {
+        return !HttpMethod.GET.name().equalsIgnoreCase(method);
+    }
+
 
     private static String getRequestUri(HttpServletRequest request) {
         String uri = (String) request.getAttribute("javax.servlet.include.request_uri");

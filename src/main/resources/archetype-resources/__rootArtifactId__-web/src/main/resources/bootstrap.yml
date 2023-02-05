@@ -16,3 +16,6 @@ spring:
         server-addr: localhost:8090
         file-extension: yml
         group: DEFAULT_GROUP
+
+urls:
+  demo: http://localhost:8001
