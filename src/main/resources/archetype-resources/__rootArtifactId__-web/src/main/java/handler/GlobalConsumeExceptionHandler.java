@@ -8,8 +8,6 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import top.easyboot.exception.SignatureArgumentException;
-import top.easyboot.exception.SignatureException;
 import ${package}.exception.BusinessException;
 import ${package}.response.BaseResponse;
 import ${package}.response.ResultCode;
@@ -57,18 +55,6 @@ public class GlobalConsumeExceptionHandler {
     public BaseResponse<Object> handleBusinessException(BusinessException e) {
         e.printStackTrace();
         return BaseResponse.fail(e.getCode(), e.getMessage());
-    }
-
-
-    /**
-     * 处理未捕获的自定义业务异常 SignatureArgumentException、SignatureException
-     *
-     * @param e 异常
-     * @return 统一响应体
-     */
-    @ExceptionHandler({SignatureArgumentException.class,SignatureException.class})
-    public BaseResponse<Object> handleSignException(RuntimeException e) {
-        return BaseResponse.fail(ResultCode.SIGN_FAIL.getCode(), e.getMessage());
     }
 
     /**

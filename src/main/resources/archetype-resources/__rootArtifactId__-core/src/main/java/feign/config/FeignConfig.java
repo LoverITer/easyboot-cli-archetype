@@ -3,7 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.feign.config;
 
-import com.google.common.base.Splitter;
 import com.google.common.collect.Lists;
 import feign.*;
 import feign.codec.Decoder;
@@ -28,7 +27,6 @@ import ${package}.feign.internal.FeignLogger;
 import ${package}.feign.internal.OkHttpClientFactory;
 import ${package}.feign.sign.CommonSignInterceptor;
 import ${package}.response.ResultCode;
-import top.easyboot.sign.SignHandler;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -43,9 +41,6 @@ public class FeignConfig {
 
     @Autowired
     protected GsonHttpMessageConverter customGsonConverters;
-
-    @Autowired
-    protected SignHandler signHandler;
 
     @Value("${symbol_dollar}{feign.custom.read-timeout:6000}")
     private int readTimeout;
@@ -104,12 +99,6 @@ public class FeignConfig {
     @Bean
     public Encoder encoder() {
         return new SpringEncoder(() -> new HttpMessageConverters(false, Lists.newArrayList(customGsonConverters)));
-    }
-
-    @Bean
-    public RequestInterceptor sign() {
-        Set<String> excludes = new HashSet<>(Splitter.on(excludesPath).omitEmptyStrings().splitToList(","));
-        return new CommonSignInterceptor(signHandler, excludes);
     }
 
     @Bean

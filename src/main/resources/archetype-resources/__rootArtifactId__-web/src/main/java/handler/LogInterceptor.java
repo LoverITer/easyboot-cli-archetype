@@ -12,6 +12,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import top.easyblog.titan.util.JsonUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpMethod;
 
 /**
  * @author: frank.huang
