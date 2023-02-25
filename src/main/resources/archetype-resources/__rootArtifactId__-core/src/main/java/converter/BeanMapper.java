@@ -10,5 +10,5 @@ import org.mapstruct.Mapper;
  * @date: 2023-02-25 12:29
  */
 @Mapper(componentModel = "spring")
-public class BeanMapper {
+public interface BeanMapper {
 }
