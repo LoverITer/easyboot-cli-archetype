@@ -12,7 +12,7 @@ import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import top.easyboot.constant.Constants;
+import ${package}.constant.Constants;
 import ${package}.annotation.RequestParamAlias;
 
 import java.util.Iterator;

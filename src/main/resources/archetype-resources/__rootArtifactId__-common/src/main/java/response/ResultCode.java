@@ -17,10 +17,12 @@ import lombok.Getter;
 public enum ResultCode {
     //sever internal
     SUCCESS,
+    FAIL,
     INVALID_PARAMS,
     NOT_FOUND,
     INTERNAL_ERROR,
     DATA_ACCESS_FAIL,
+    PARAMETER_VALIDATE_FAILED,
 
     SIGN_FAIL,
     SIGN_ERROR,
